@@ -1,0 +1,97 @@
+diff -ur httpd-2.2.14/configure httpd-2.2.14.new/configure
+--- httpd-2.2.14/configure	2009-09-24 01:29:56.000000000 +0200
++++ httpd-2.2.14.new/configure	2010-01-23 13:28:02.000000000 +0100
+@@ -4053,25 +4053,27 @@
+   fi
+ 
+ 
+-  if test "x$LDFLAGS" = "x"; then
+-    test "x$silent" != "xyes" && echo "  setting LDFLAGS to \"`$apr_config --ldflags`\""
+-    LDFLAGS="`$apr_config --ldflags`"
+-  else
+-    apr_addto_bugger="`$apr_config --ldflags`"
+-    for i in $apr_addto_bugger; do
+-      apr_addto_duplicate="0"
+-      for j in $LDFLAGS; do
+-        if test "x$i" = "x$j"; then
+-          apr_addto_duplicate="1"
+-          break
+-        fi
+-      done
+-      if test $apr_addto_duplicate = "0"; then
+-        test "x$silent" != "xyes" && echo "  adding \"$i\" to LDFLAGS"
+-        LDFLAGS="$LDFLAGS $i"
+-      fi
+-    done
+-  fi
++    test "xyes" != "xyes" && echo "  setting LDFLAGS to \"`$apr_config --ldflags`\""
++    LDFLAGS="$LDFLAGS `$apr_config --ldflags`" 
++  #if test "x$LDFLAGS" = "x"; then
++  #  test "x$silent" != "xyes" && echo "  setting LDFLAGS to \"`$apr_config --ldflags`\""
++  #  LDFLAGS="`$apr_config --ldflags`"
++  #else
++  #  apr_addto_bugger="`$apr_config --ldflags`"
++  #  for i in $apr_addto_bugger; do
++  #    apr_addto_duplicate="0"
++  #    for j in $LDFLAGS; do
++  #      if test "x$i" = "x$j"; then
++  #        apr_addto_duplicate="1"
++  #        break
++  #      fi
++  #    done
++  #    if test $apr_addto_duplicate = "0"; then
++  #      test "x$silent" != "xyes" && echo "  adding \"$i\" to LDFLAGS"
++  #      LDFLAGS="$LDFLAGS $i"
++  #    fi
++  #  done
++  #fi
+ 
+ SHLIBPATH_VAR=`$apr_config --shlib-path-var`
+ APR_BINDIR=`$apr_config --bindir`
+@@ -4361,25 +4363,27 @@
+ fi
+ 
+ 
+-  if test "x$LDFLAGS" = "x"; then
+-    test "x$silent" != "xyes" && echo "  setting LDFLAGS to \"`$apu_config --ldflags`\""
+-    LDFLAGS="`$apu_config --ldflags`"
+-  else
+-    apr_addto_bugger="`$apu_config --ldflags`"
+-    for i in $apr_addto_bugger; do
+-      apr_addto_duplicate="0"
+-      for j in $LDFLAGS; do
+-        if test "x$i" = "x$j"; then
+-          apr_addto_duplicate="1"
+-          break
+-        fi
+-      done
+-      if test $apr_addto_duplicate = "0"; then
+-        test "x$silent" != "xyes" && echo "  adding \"$i\" to LDFLAGS"
+-        LDFLAGS="$LDFLAGS $i"
+-      fi
+-    done
+-  fi
++    test "xyes" != "xyes" && echo "  setting LDFLAGS to \"`$apu_config --ldflags`\""
++    LDFLAGS="$LDFLAGS `$apu_config --ldflags`" 
++  #if test "x$LDFLAGS" = "x"; then
++  #  test "x$silent" != "xyes" && echo "  setting LDFLAGS to \"`$apu_config --ldflags`\""
++  #  LDFLAGS="`$apu_config --ldflags`"
++  #else
++  #  apr_addto_bugger="`$apu_config --ldflags`"
++  #  for i in $apr_addto_bugger; do
++  #    apr_addto_duplicate="0"
++  #    for j in $LDFLAGS; do
++  #      if test "x$i" = "x$j"; then
++  #        apr_addto_duplicate="1"
++  #        break
++  #      fi
++  #    done
++  #    if test $apr_addto_duplicate = "0"; then
++  #      test "x$silent" != "xyes" && echo "  adding \"$i\" to LDFLAGS"
++  #      LDFLAGS="$LDFLAGS $i"
++  #    fi
++  #  done
++  #fi
+ 
+ APU_BINDIR=`$apu_config --bindir`
+ APU_INCLUDEDIR=`$apu_config --includedir`
